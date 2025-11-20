@@ -1,3 +1,5 @@
+```sql
+
 CREATE TABLE player (
 	player_id integer auto_increment PRIMARY KEY,
 	name varChar,
@@ -7,3 +9,5 @@ CREATE TABLE player (
  	weight integer,
   	number integer
 )ENGINE=InnoDB;
+
+```
