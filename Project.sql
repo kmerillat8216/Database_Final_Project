@@ -32,5 +32,8 @@ CREATE TABLE player_game_stats(
 	receiving_yards integer,
 	passing_yards integer,
 	touchdowns integer,
-	played boolean
+	played boolean,
+	PRIMARY KEY (player_id, game_id),
+	FOREIGN KEY (player_id) REFERENCES player(player_id),
+	FOREIGN KEY (game_id) REFERENCES game(game_id)
 )ENGINE=InnoDB;
