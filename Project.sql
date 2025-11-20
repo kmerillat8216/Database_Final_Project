@@ -1,4 +1,4 @@
-```sql
+sql
 
 CREATE TABLE player (
 	player_id integer auto_increment PRIMARY KEY,
@@ -10,4 +10,4 @@ CREATE TABLE player (
   	number integer
 )ENGINE=InnoDB;
 
-```
+
