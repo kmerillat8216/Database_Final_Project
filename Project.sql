@@ -10,4 +10,14 @@ CREATE TABLE player (
   	number integer
 )ENGINE=InnoDB;
 
+CREATE TABLE game (
+	game_id integer auto_increment PRIMARY KEY,
+	date DATE,
+	result ENUM('W', 'L'),
+	home_score integer,
+	away_score integer,
+	opponent varChar,
+	location varChar
+)ENGINE=InnoDB;
+
 
