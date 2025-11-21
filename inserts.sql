@@ -4,7 +4,7 @@ insert into position (position_id, description) VALUES
 (1, 'Quarter Back'),
 (2, 'Running Back'),
 (3, 'Tight End'),
-(4, 'Wide Receiver');
+(4, 'Wide Receiver);
 
 insert into player (player_id, name, hometown, position_id, year, height, weight, number) VALUES
 (1,	'Quinshon Judkins',	'Pike Road',	2,	'Junior',	'6-0',	219,	1),
