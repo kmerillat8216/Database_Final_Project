@@ -3,11 +3,12 @@ sql
 CREATE TABLE player (
 	player_id integer auto_increment PRIMARY KEY,
 	name varChar(100),
-  	position_id integer FOREIGN KEY,
+  	position_id integer,
  	year varChar(20),
   	height varChar(10),
  	weight integer,
   	number integer
+	FOREIGN KEY (position_id) REFERENCES position(position_id)
 )ENGINE=InnoDB;
 
 CREATE TABLE game (
@@ -21,7 +22,7 @@ CREATE TABLE game (
 )ENGINE=InnoDB;
 
 CREATE TABLE position (
-	position_id integer PRIMARY KEY,
+	position_id integer auto_increment PRIMARY KEY,
 	description varChar(50)
 )ENGINE=InnoDB;
 
