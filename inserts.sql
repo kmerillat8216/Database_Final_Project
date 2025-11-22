@@ -45,7 +45,7 @@ insert into player (player_id, name, hometown, position_id, year, height, weight
 (36,	'Zak Herbstreit',	'Nashville',	3,	'Senior',	'6-2',	240,	89),
 (37,	'Will Kacmarek',	'St. Louis',	3,	'Senior',	'6-6',	260,	89);
 
-insert into game(game_id, date, result, home_score, away_score, opponent, location)
+insert into game(game_id, date, result, home_score, away_score, opponent, location) VALUES
 (1,	'8/31/2024',	'W',	52,	6,	'Akron',	'Ohio State'),
 (2,	'9/7/2024',	'W'	56,	0,	'Western Michigan',	'Ohio State'),
 (3,	'9/21/2024',	'W',	49,	14,	'Marshall',	'Ohio State'),
@@ -63,3 +63,4 @@ insert into game(game_id, date, result, home_score, away_score, opponent, locati
 (15,	'1/10/2025',	'W',	14,	28,	'Texas',	'Cotton Bowl'),
 (16,	'1/20/2025',	'W',	23,	34,	'Notre Dame',	'National Championship');
 
+insert into player_game_stats(player_id, game_id, rushing_yards, receiving_yards, passing_yards, touchdowns, played) VALUES
