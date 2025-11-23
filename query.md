@@ -2,7 +2,7 @@ Query #1
 
 ```sql
 SELECT * FROM player;
-ORDER BY rushing_yards ASC, touchdowns ASC;
+ORDER BY position_id ASC, name ASC;
 ```
 
 Query #2
