@@ -16,13 +16,21 @@ FROM player_game_stats;
 Query #3
 
 ```sql
-SELECT * FROM table1;
+SELECT 
+    name,
+    MID(name, 1, 3) AS first_three_letters
+FROM player;
 ```
 
 Query #4
 
 ```sql
-SELECT * FROM table1;
+SELECT 
+    p.name,
+    SUM(s.touchdowns) AS total_tds
+FROM player_game_stats
+GROUP BY p.player_id
+HAVING total_tds > 3;
 ```
 
 Query #5
