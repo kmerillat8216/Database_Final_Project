@@ -8,7 +8,9 @@ ORDER BY position_id ASC, name ASC;
 Query #2
 
 ```sql
-SELECT * FROM table1;
+SELECT
+(rushing_yards + receiving_yards + passing_yards) AS total_yards
+FROM player_game_stats;
 ```
 
 Query #3
