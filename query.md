@@ -36,13 +36,26 @@ HAVING total_tds > 3;
 Query #5
 
 ```sql
-SELECT * FROM table1;
+SELECT 
+    g.date,
+    g.opponent,
+    p.name,
+    s.rushing_yards
+FROM player_game_stats s
+JOIN player p ON s.player_id = p.player_id
+JOIN game g ON s.game_id = g.game_id
+ORDER BY g.date, p.name;
 ```
 
 Query #6
 
 ```sql
-SELECT * FROM table1;
+SELECT
+    p.name,
+    p.position_id,
+    pos.description
+FROM position pos
+LEFT JOIN player p ON p.position_id = pos.position_id;
 ```
 
 Query #7
