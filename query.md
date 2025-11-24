@@ -87,7 +87,9 @@ SELECT
 FROM player_game_stats s
 JOIN player p ON s.player_id = p.player_id
 GROUP BY p.player_id;
+```
 
+```sql
 SELECT * FROM offensive_totals
 ORDER BY total_tds DESC;
 ```
@@ -96,10 +98,14 @@ Query #10
 
 ```sql
 START TRANSACTION;
+```
 
+```sql
 UPDATE player_game_stats
 SET rushing_yards = rushing_yards + 20
 WHERE player_id = 3 AND game_id = 2;
+```
 
+```sql
 ROLLBACK;
 ```
