@@ -61,23 +61,45 @@ LEFT JOIN player p ON p.position_id = pos.position_id;
 Query #7
 
 ```sql
-SELECT * FROM table1;
+UPDATE player
+SET weight = 225
+WHERE name = "Quishon Judkins";
 ```
 
 Query #8
 
 ```sql
-SELECT * FROM table1;
+DELETE FROM player_game_stats
+WHERE player_id = 3 AND game_id = 1;
 ```
 
-Query #2
+Query #9
 
 ```sql
-SELECT * FROM table1;
+CREATE VIEW offensive_totals AS
+SELECT 
+    p.player_id,
+    p.name,
+    SUM(s.rushing_yards) AS total_rush,
+    SUM(s.receiving_yards) AS total_receive,
+    SUM(s.passing_yards) AS total_pass,
+    SUM(s.touchdowns) AS total_tds
+FROM player_game_stats s
+JOIN player p ON s.player_id = p.player_id
+GROUP BY p.player_id;
+
+SELECT * FROM offensive_totals
+ORDER BY total_tds DESC;
 ```
 
 Query #10
 
 ```sql
-SELECT * FROM table1;
+START TRANSACTION;
+
+UPDATE player_game_stats
+SET rushing_yards = rushing_yards + 20
+WHERE player_id = 3 AND game_id = 2;
+
+ROLLBACK;
 ```
