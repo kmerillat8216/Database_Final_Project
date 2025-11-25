@@ -7,7 +7,7 @@ CREATE TABLE player (
  	year varChar(20),
   	height varChar(10),
  	weight integer,
-  	number integer
+  	number integer,
 	FOREIGN KEY (position_id) REFERENCES position(position_id)
 )ENGINE=InnoDB;
 ```
