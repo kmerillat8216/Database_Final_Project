@@ -1,4 +1,4 @@
-sql
+```sql
 
 CREATE TABLE player (
 	player_id integer auto_increment PRIMARY KEY,
@@ -10,7 +10,9 @@ CREATE TABLE player (
   	number integer
 	FOREIGN KEY (position_id) REFERENCES position(position_id)
 )ENGINE=InnoDB;
+```
 
+```sql
 CREATE TABLE game (
 	game_id integer auto_increment PRIMARY KEY,
 	date DATE,
@@ -20,12 +22,16 @@ CREATE TABLE game (
 	opponent varChar(100),
 	location varChar(100)
 )ENGINE=InnoDB;
+```
 
+```sql
 CREATE TABLE position (
 	position_id integer auto_increment PRIMARY KEY,
 	description varChar(50)
 )ENGINE=InnoDB;
+```
 
+```sql
 CREATE TABLE player_game_stats(
 	player_id integer,
 	game_id integer,
@@ -38,3 +44,4 @@ CREATE TABLE player_game_stats(
 	FOREIGN KEY (player_id) REFERENCES player(player_id),
 	FOREIGN KEY (game_id) REFERENCES game(game_id)
 )ENGINE=InnoDB;
+```
