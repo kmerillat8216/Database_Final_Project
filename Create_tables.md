@@ -8,7 +8,7 @@ year varChar(20),
 height varChar(10),
 weight integer,
 number integer,
-FOREIGN KEY (position_id) REFERENCES position(position_id)
+FOREIGN KEY (position_id) REFERENCES player_position(position_id)
 )ENGINE=InnoDB;
 ```
 
@@ -25,7 +25,7 @@ CREATE TABLE game (
 ```
 
 ```sql
-CREATE TABLE position (
+CREATE TABLE player_position (
 	position_id integer auto_increment PRIMARY KEY,
 	description varChar(50)
 )ENGINE=InnoDB;
