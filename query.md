@@ -1,7 +1,7 @@
 Query #1
 
 ```sql
-SELECT * FROM player;
+SELECT * FROM player
 ORDER BY position_id ASC, name ASC;
 ```
 
