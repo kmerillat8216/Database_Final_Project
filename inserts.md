@@ -1,6 +1,6 @@
 ```sql
 
-insert into position (position_id, description) VALUES
+insert into player_position (position_id, description) VALUES
 (1, 'Quarter Back'),
 (2, 'Running Back'),
 (3, 'Tight End'),
