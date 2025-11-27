@@ -6,7 +6,7 @@ insert into player_position (position_id, description) VALUES
 (3, 'Tight End'),
 (4, 'Wide Receiver');
 ```
-
+UPDATE QUARTERBACK TO ONE WORD
 ```sql
 insert into player (player_id, name, hometown, position_id, year, height, weight, number) VALUES
 (1,	'Quinshon Judkins',	'Pike Road',	2,	'Junior',	'6-0',	219,	1),
