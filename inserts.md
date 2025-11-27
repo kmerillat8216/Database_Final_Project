@@ -6,7 +6,7 @@ insert into player_position (position_id, description) VALUES
 (3, 'Tight End'),
 (4, 'Wide Receiver');
 ```
-UPDATE QUARTERBACK TO ONE WORD
+
 ```sql
 insert into player (player_id, name, hometown, position_id, year, height, weight, number) VALUES
 (1,	'Quinshon Judkins',	'Pike Road',	2,	'Junior',	'6-0',	219,	1),
@@ -49,22 +49,22 @@ insert into player (player_id, name, hometown, position_id, year, height, weight
 ```
 ```sql
 insert into game(game_id, date, result, home_score, away_score, opponent, location) VALUES
-(1,	'8-31-2024',	'W',	52,	6,	'Akron',	'Ohio State'),
-(2,	'9-7-2024',	'W'	56,	0,	'Western Michigan',	'Ohio State'),
-(3,	'9-21-2024',	'W',	49,	14,	'Marshall',	'Ohio State'),
-(4,	'9-28-2024',	'W',	7,	38,	'Michigan State',	'Michigan State'),
-(5,	'10-5-2024',	'W',	35,	7,	'Iowa',	'Ohio State'),
-(6,	'10-12-2024',	'L',	32,	31,	'Oregon',	'Oregon'),
-(7,	'10-26-2024',	'W',	21,	17,	'Nebraska',	'Ohio State'),
-(8,	'11-2-2024',	'W',	13,	20,	'Penn State',	'Penn State'),
-(9,	'11-9-2024',	'W',	45,	0,	'Purdue',	'Ohio State'),
-(10,	'11-16-2024',	'W',	7,	31,	'Northwestern',	'Northwestern'),
-(11,	'11-23-2024',	'W',	38,	15,	'Indiana',	'Ohio State'),
-(12,	'11-30-2024',	'L',	10,	13,	'Michigan',	'Ohio State'),
-(13,	'12-21-2024',	'W',	42,	17,	'Tennessee',	'Ohio State'),
-(14,	'1-1-2025',	'W',	21,	41,	'Oregon',	'Rose Bowl'),
-(15,	'1-10-2025',	'W',	14,	28,	'Texas',	'Cotton Bowl'),
-(16,	'1-20-2025',	'W',	23,	34,	'Notre Dame',	'National Championship');
+(1,	'2024-8-31',	'W',	52,	6,	'Akron',	'Ohio State'),
+(2,	'2024-9-7',	'W',	56,	0,	'Western Michigan',	'Ohio State'),
+(3,	'2024-9-21',	'W',	49,	14,	'Marshall',	'Ohio State'),
+(4,	'2024-9-28',	'W',	7,	38,	'Michigan State',	'Michigan State'),
+(5,	'2024-10-5',	'W',	35,	7,	'Iowa',	'Ohio State'),
+(6,	'2024-10-12',	'L',	32,	31,	'Oregon',	'Oregon'),
+(7,	'2024-10-26',	'W',	21,	17,	'Nebraska',	'Ohio State'),
+(8,	'2024-11-2',	'W',	13,	20,	'Penn State',	'Penn State'),
+(9,	'2024-11-9',	'W',	45,	0,	'Purdue',	'Ohio State'),
+(10,	'2024-11-16',	'W',	7,	31,	'Northwestern',	'Northwestern'),
+(11,	'2024-11-23',	'W',	38,	15,	'Indiana',	'Ohio State'),
+(12,	'2024-11-30',	'L',	10,	13,	'Michigan',	'Ohio State'),
+(13,	'2024-12-21',	'W',	42,	17,	'Tennessee',	'Ohio State'),
+(14,	'2025-1-1',	'W',	21,	41,	'Oregon',	'Rose Bowl'),
+(15,	'2025-1-10',	'W',	14,	28,	'Texas',	'Cotton Bowl'),
+(16,	'2025-1-20',	'W',	23,	34,	'Notre Dame',	'National Championship');
 ```
 
 ```sql
