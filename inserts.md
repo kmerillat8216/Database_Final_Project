@@ -1,11 +1,13 @@
-sql
+```sql
 
 insert into position (position_id, description) VALUES
 (1, 'Quarter Back'),
 (2, 'Running Back'),
 (3, 'Tight End'),
 (4, 'Wide Receiver');
+```
 
+```sql
 insert into player (player_id, name, hometown, position_id, year, height, weight, number) VALUES
 (1,	'Quinshon Judkins',	'Pike Road',	2,	'Junior',	'6-0',	219,	1),
 (2,	'Emeka Egbuka',	'Steilacoom',	4,	'Graduate',	'6-1',	205,	2),
@@ -44,7 +46,8 @@ insert into player (player_id, name, hometown, position_id, year, height, weight
 (35,	'Gee Scott Jr.',	'Seattle',	3,	'Graduate',	'6-3',	243,	88),
 (36,	'Zak Herbstreit',	'Nashville',	3,	'Senior',	'6-2',	240,	89),
 (37,	'Will Kacmarek',	'St. Louis',	3,	'Senior',	'6-6',	260,	89);
-
+```
+```sql
 insert into game(game_id, date, result, home_score, away_score, opponent, location) VALUES
 (1,	'8-31-2024',	'W',	52,	6,	'Akron',	'Ohio State'),
 (2,	'9-7-2024',	'W'	56,	0,	'Western Michigan',	'Ohio State'),
@@ -62,7 +65,9 @@ insert into game(game_id, date, result, home_score, away_score, opponent, locati
 (14,	'1-1-2025',	'W',	21,	41,	'Oregon',	'Rose Bowl'),
 (15,	'1-10-2025',	'W',	14,	28,	'Texas',	'Cotton Bowl'),
 (16,	'1-20-2025',	'W',	23,	34,	'Notre Dame',	'National Championship');
+```
 
+```sql
 insert into player_game_stats(player_id, game_id, rushing_yards, receiving_yards, passing_yards, touchdowns, played) VALUES
 (1,	1,	55,	0,	0,	1,	1),
 (2,	1,	0,	51,	0,	0,	1),
@@ -656,3 +661,4 @@ insert into player_game_stats(player_id, game_id, rushing_yards, receiving_yards
 (35,	16,	0,	4,	0,	0,	1),
 (36,	16,	0,	0,	0,	0,	0),
 (37,	16,	0,	0,	0,	0,	1);
+```
