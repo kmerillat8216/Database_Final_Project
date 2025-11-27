@@ -3,6 +3,7 @@
 CREATE TABLE player (
 player_id integer auto_increment PRIMARY KEY,
 name varChar(100),
+hometown varChar(100),
 position_id integer,
 year varChar(20),
 height varChar(10),
