@@ -1,7 +1,7 @@
 ```sql
 
 insert into player_position (position_id, description) VALUES
-(1, 'Quarter Back'),
+(1, 'Quarterback'),
 (2, 'Running Back'),
 (3, 'Tight End'),
 (4, 'Wide Receiver');
