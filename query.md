@@ -8,9 +8,13 @@ ORDER BY position_id ASC, name ASC;
 Query #2
 
 ```sql
-SELECT
-(rushing_yards + receiving_yards + passing_yards) AS total_yards
-FROM player_game_stats;
+SELECT 
+    p.name,
+    pgs.game_id,
+    (pgs.rushing_yards + pgs.receiving_yards + pgs.passing_yards) AS total_yards
+FROM player_game_stats pgs
+JOIN player p ON pgs.player_id = p.player_id
+WHERE pgs.played <> 0;
 ```
 
 Query #3
@@ -25,10 +29,11 @@ FROM player;
 Query #4
 
 ```sql
-SELECT 
+SELECT
     p.name,
     SUM(s.touchdowns) AS total_tds
-FROM player_game_stats
+FROM player_game_stats AS s
+JOIN player AS p ON s.player_id = p.player_id
 GROUP BY p.player_id
 HAVING total_tds > 3;
 ```
@@ -44,6 +49,7 @@ SELECT
 FROM player_game_stats s
 JOIN player p ON s.player_id = p.player_id
 JOIN game g ON s.game_id = g.game_id
+WHERE s.rushing_yards <> 0
 ORDER BY g.date, p.name;
 ```
 
@@ -52,9 +58,8 @@ Query #6
 ```sql
 SELECT
     p.name,
-    p.position_id,
     pos.description
-FROM position pos
+FROM player_position pos
 LEFT JOIN player p ON p.position_id = pos.position_id;
 ```
 
