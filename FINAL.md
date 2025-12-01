@@ -1,5 +1,7 @@
 ## Summary Report
 * 2 or 3 paragraphs describing the business/organization/person that will use your database.
+  My database is designed for a college football program that needs to efficiently store and analyze individual player performance throughout a season. This organization relies on accurate statistical tracking to evaluate athletes, prepare weekly scouting reports, and support coaching decisions. By centralizing information about game results, detailed offensive statistics, players, and their positions, the database provides the coaching staff, analysts, and support personnel with a unified and reliable system for understanding team performance.
+  In addition to supporting coaching decisions, the database will benefit the football program's analytics and recruiting departments. Analysts can identify trends in player productivity, monitor improvements across the season, and compare similar players within position groups. Recruiters and player development staff can reference performance data to highlight player strengths during evaluations or discussions with future recruits. The system also serves as a long-term data archive, which can then be used to compare stats historically and have a deeper insight into year-by-year changes. 
 * 2 or 3 paragraphs describing how the database will be used from a user’s perspective
 
 ## ER Model
