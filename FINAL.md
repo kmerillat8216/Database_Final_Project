@@ -1,10 +1,11 @@
 ## Summary Report
+#### The business/organization/person using my database
   My database is designed for a college football program that needs to efficiently store and analyze individual player performance throughout a season. This organization relies on accurate statistical tracking to evaluate athletes, prepare weekly scouting reports, and support coaching decisions. By centralizing information about game results, detailed offensive statistics, players, and their positions, the database provides the coaching staff, analysts, and support personnel with a unified and reliable system for understanding team performance.
   
   In addition to supporting coaching decisions, the database will benefit the football program's analytics and recruiting departments. Analysts can identify trends in player productivity, monitor improvements across the season, and compare similar players within position groups. Recruiters and player development staff can reference performance data to highlight player strengths during evaluations or discussions with future recruits. The system also serves as a long-term data archive, which can then be used to compare stats historically and have a deeper insight into year-by-year changes.
   
   The database can also be used by student analysts, sports management interns, and coaching assistants who are responsible for compiling post-game reports or generating weekly summaries. Due to the structure of the database being normalized, the data is consistent, clean, and easy to query. This makes it easy to simplify common tasks like calculating total offensive yards, generating top stats, or tracking season-long touchdown totals. Overall, this database provides the football program with a professional and scalable foundation for performance analysis.
-* 2 or 3 paragraphs describing how the database will be used from a user’s perspective
+#### How the database will be used from a user’s perspective
   From a user's perspective, the database functions as an organized system that allows coaches, analysts, and student staff members to quickly retrieve and update information about players and their performance. After each game, a user can enter rushing, receiving, passing, and touchdown statistics, and whether the player participated in the game into the player_game_stats table. Users can also review player information such as position, class year, and jersey number to support tasks like roster sheet creation, scouting breakdowns, and media preparation.
 
   Users will frequently run queries to analyze performance trends throughout the season. For example, they can view which players recorded the highest total yards in a game, compare a player's stats across multiple games, or generate summaries of team performance against specific opponents. The database also allows users to sort and filter data using meaningful categories such as position groups, game dates, or opponents. This makes it easy to answer common questions like, "Which running backs scored the most touchdowns?" or "How many yards did the offense produce in each game?"
@@ -57,38 +58,22 @@ erDiagram
     
 ```
 
-  The design of my database is fully normalized and has a relational structure that intends to store and analyze football player
-  performance data across a full season. This database model separates the data into 4 distinct tables. We can see the basic information
-  for each player on the team, each game in the season, and the positions on the team. Using those three tables, they can be combined to get the 4th
-  table that describes each player's stats for every game. The tables depend solely on their primary keys, following the Third Normal Form. For example,
-  player details such as jersey number, height, and hometown are stored only once in the Player table to prevent unnecessary duplication when generating
-  statistics for multiple games.
+  The design of my database is fully normalized and has a relational structure that intends to store and analyze football player performance data across a full season. This database model separates the data into 4 distinct tables. We can see the basic information for each player on the team, each game in the season, and the positions on the team. Using those three tables, they can be combined to get the 4th table that describes each player's stats for every game. The tables depend solely on their primary keys, following the Third Normal Form. For example, player details such as jersey number, height, and hometown are stored only once in the Player table to prevent unnecessary duplication when generating statistics for multiple games.
 
-  A key design choice I made was creating a junction table, player_game_stats, to represent the many-to-many relationship between players and games. To avoid
-  this issue, the player_game_stats table has a composite primary key of player_id and game_id. This composite key is used to identify each performance
-  entry uniquely. The stats table also limited the stats to the measurable performance metrics: rushing, receiving, passing, and touchdowns, which allows
-  game-by-game analytics without repeating player or game attributes.
+  A key design choice I made was creating a junction table, player_game_stats, to represent the many-to-many relationship between players and games. To avoid this issue, the player_game_stats table has a composite primary key of player_id and game_id. This composite key is used to identify each performance entry uniquely. The stats table also limited the stats to the measurable performance metrics: rushing, receiving, passing, and touchdowns, which allows game-by-game analytics without repeating player or game attributes.
 
-  The database also normalizes player positions by storing them in a separate player_position table. I could have kept the full position name for each player,
-  but I decided to create a whole table for the position. The position_id serves as a foreign key in the player table that references a single record in the
-  player_position table. Making this choice avoids inconsistency in position naming, makes updates easier, and maintains referential integrity. Overall, the
-  design enforces clean separation of entities while supporting flexible reporting and efficient statistical queries.
+  The database also normalizes player positions by storing them in a separate player_position table. I could have kept the full position name for each player, but I decided to create a whole table for the position. The position_id serves as a foreign key in the player table that references a single record in the player_position table. Making this choice avoids inconsistency in position naming, makes updates easier, and maintains referential integrity. Overall, the design enforces clean separation of entities while supporting flexible reporting and efficient statistical queries.
   
 
   ### Player
-  The player table stores personal and static information for each football player, such as name, class year, hometown, physical attributes, and jersey number.
-  It links to the player_position table through a foreign key to classify each player. Each entry represents one unique athlete in the system.
+  The player table stores personal and static information for each football player, such as name, class year, hometown, physical attributes, and jersey number. It links to the player_position table through a foreign key to classify each player. Each entry represents one unique athlete in the system.
   ### Player_Position
-  The player_position table defines the set of football positions, each assigned to an ID number. Storing these in a separate table prevents duplication and ensures
-  consistency. It is referenced by the player table to assign each player exactly one position category.
+  The player_position table defines the set of football positions, each assigned to an ID number. Storing these in a separate table prevents duplication and ensures consistency. It is referenced by the player table to assign each player exactly one position category.
   ### Game
   The game table contains information on each scheduled game, including the date, opponent, location, and final scores. It serves as the parent entity for all
   statistics recorded during that game. Each entry represents one unique matchup.
   ### Player_Game_Stats
-  The player_game_stats table records all performance statistics for a single player in a single game. Because players participate in multiple games, and games include
-  multiple players, this table resolves the many-to-many relationship between player and game tables. It includes rushing, receiving, passing yards, touchdowns, and
-  whether the player participated in that game. A player having zero stats because they did not participate means something different than a player having zero stats
-  because they did not play.
+  The player_game_stats table records all performance statistics for a single player in a single game. Because players participate in multiple games, and games include multiple players, this table resolves the many-to-many relationship between player and game tables. It includes rushing, receiving, passing yards, touchdowns, and whether the player participated in that game. A player having zero stats because they did not participate means something different than a player having zero stats while playing.
 ## Tables
 ```sql
 
