@@ -786,6 +786,47 @@ Query #1
 SELECT * FROM player
 ORDER BY position_id ASC, name ASC;
 ```
++-----------+--------------------+---------------+-------------+-----------+--------+--------+--------+
+| player_id | name               | hometown      | position_id | year      | height | weight | number |
++-----------+--------------------+---------------+-------------+-----------+--------+--------+--------+
+|         9 | Air Noland         | College Park  |           1 | Freshman  | 6-2    |    192 |     12 |
+|        16 | Chad Ray           | Dublin        |           1 | Senior    | 6-2    |    215 |     19 |
+|        24 | Devin Brown        | Gilbert       |           1 | Junior    | 6-3    |    212 |     33 |
+|         7 | Julian Sayin       | Carlsbad      |           1 | Freshman  | 6-1    |    203 |     10 |
+|         3 | Lincoln Kienholz   | Pierre        |           1 | Sophomore | 6-3    |    207 |      3 |
+|        13 | Mason Maggs        | Dublin        |           1 | Junior    | 6-2    |    224 |     16 |
+|        15 | Will Howard        | Downington    |           1 | Graduate  | 6-4    |    235 |     18 |
+|        20 | Chase Brecht       | Powell        |           2 | Junior    | 6-0    |    205 |     26 |
+|        17 | James People       | San Antonio   |           2 | Freshman  | 5-10   |    203 |     20 |
+|         1 | Quinshon Judkins   | Pike Road     |           2 | Junior    | 6-0    |    219 |      1 |
+|        22 | Rashid SeSay       | Zanesville    |           2 | Freshman  | 5-11   |    190 |     30 |
+|        19 | Sam Dixon          | Pickerington  |           2 | Freshman  | 5-11   |    203 |     24 |
+|        21 | TC Caffey          | Hubbard       |           2 | Junior    | 5-10   |    215 |     28 |
+|        23 | TreVeyon Henderson | Hopewell      |           2 | Senior    | 5-10   |    208 |     32 |
+|        33 | Bennett Christian  | Acworth       |           3 | Junior    | 6-6    |    260 |     85 |
+|        35 | Gee Scott Jr.      | Seattle       |           3 | Graduate  | 6-3    |    243 |     88 |
+|        26 | Jace Middleton     | Lewis Center  |           3 | Senior    | 6-4    |    235 |     46 |
+|        12 | Jelani Thurman     | Fairburn      |           3 | Sophomore | 6-6    |    258 |     15 |
+|        34 | Maxence LeBlanc    | St-Bruno      |           3 | Freshman  | 6-4    |    227 |     86 |
+|        27 | Patrick Gurd       | New Albany    |           3 | Senior    | 6-4    |    249 |     49 |
+|        37 | Will Kacmarek      | St. Louis     |           3 | Senior    | 6-6    |    260 |     89 |
+|        36 | Zak Herbstreit     | Nashville     |           3 | Senior    | 6-2    |    240 |     89 |
+|         8 | Brandon Inniss     | Hollywood     |           4 | Sophomore | 6-0    |    203 |     11 |
+|        25 | Brennen Schramm    | Medina        |           4 | Sophomore | 6-0    |    191 |     34 |
+|        10 | Bryson Rodgers     | Tampa         |           4 | Sophomore | 6-2    |    185 |     13 |
+|        14 | Carnell Tate       | Chicago       |           4 | Sophomore | 6-3    |    191 |     17 |
+|        29 | Damarion Witten    | Cleveland     |           4 | Freshman  | 6-4    |    215 |     81 |
+|        30 | David Adolph       | Dublin        |           4 | Junior    | 6-5    |    209 |     82 |
+|        32 | Dorian Williams    | Cincinnati    |           4 | Freshman  | 6-2    |    200 |     84 |
+|         2 | Emeka Egbuka       | Steilacoom    |           4 | Graduate  | 6-1    |    205 |      2 |
+|         6 | Jayden Ballard     | Massillon     |           4 | Senior    | 6-2    |    195 |      9 |
+|         4 | Jeremiah Smith     | Miami Gardens |           4 | Freshman  | 6-3    |    215 |      4 |
+|        31 | Joop Mitchell      | Wyoming       |           4 | Senior    | 6-1    |    180 |     83 |
+|        11 | Kojo Antwi         | Suwanee       |           4 | Junior    | 6-0    |    194 |     14 |
+|         5 | Mylan Graham       | Fort Wayne    |           4 | Freshman  | 6-1    |    185 |      5 |
+|        18 | Nolan Baudo        | Chicago       |           4 | Sophomore | 5-10   |    180 |     23 |
+|        28 | Shawn Lodge        | Akron         |           4 | Junior    | 6-0    |    170 |     80 |
++-----------+--------------------+---------------+-------------+-----------+--------+--------+--------
 
 Query #2
 
@@ -798,6 +839,29 @@ FROM player_game_stats pgs
 JOIN player p ON pgs.player_id = p.player_id
 WHERE pgs.played <> 0;
 ```
++--------------------+---------+-------------+
+| name               | game_id | total_yards |
++--------------------+---------+-------------+
+| Quinshon Judkins   |       1 |          55 |
+| Quinshon Judkins   |       2 |         108 |
+| Quinshon Judkins   |       3 |         187 |
+| Quinshon Judkins   |       4 |          71 |
+| Quinshon Judkins   |       5 |          76 |
+| Quinshon Judkins   |       6 |          50 |
+| Quinshon Judkins   |       7 |          38 |
+| Quinshon Judkins   |       8 |         100 |
+| Quinshon Judkins   |       9 |          45 |
+| Quinshon Judkins   |      10 |          84 |
+| Quinshon Judkins   |      11 |          43 |
+| Quinshon Judkins   |      12 |          46 |
+| Quinshon Judkins   |      13 |          43 |
+| Quinshon Judkins   |      14 |          85 |
+| Quinshon Judkins   |      15 |          58 |
+| Quinshon Judkins   |      16 |         121 |
+| Emeka Egbuka       |       1 |          51 |
+| Emeka Egbuka       |       2 |          98 |
+| Emeka Egbuka       |       3 |         117 |
+...
 
 Query #3
 
@@ -807,6 +871,47 @@ SELECT
     MID(name, 1, 3) AS first_three_letters
 FROM player;
 ```
++--------------------+---------------------+
+| name               | first_three_letters |
++--------------------+---------------------+
+| Quinshon Judkins   | Qui                 |
+| Emeka Egbuka       | Eme                 |
+| Lincoln Kienholz   | Lin                 |
+| Jeremiah Smith     | Jer                 |
+| Mylan Graham       | Myl                 |
+| Jayden Ballard     | Jay                 |
+| Julian Sayin       | Jul                 |
+| Brandon Inniss     | Bra                 |
+| Air Noland         | Air                 |
+| Bryson Rodgers     | Bry                 |
+| Kojo Antwi         | Koj                 |
+| Jelani Thurman     | Jel                 |
+| Mason Maggs        | Mas                 |
+| Carnell Tate       | Car                 |
+| Will Howard        | Wil                 |
+| Chad Ray           | Cha                 |
+| James People       | Jam                 |
+| Nolan Baudo        | Nol                 |
+| Sam Dixon          | Sam                 |
+| Chase Brecht       | Cha                 |
+| TC Caffey          | TC                  |
+| Rashid SeSay       | Ras                 |
+| TreVeyon Henderson | Tre                 |
+| Devin Brown        | Dev                 |
+| Brennen Schramm    | Bre                 |
+| Jace Middleton     | Jac                 |
+| Patrick Gurd       | Pat                 |
+| Shawn Lodge        | Sha                 |
+| Damarion Witten    | Dam                 |
+| David Adolph       | Dav                 |
+| Joop Mitchell      | Joo                 |
+| Dorian Williams    | Dor                 |
+| Bennett Christian  | Ben                 |
+| Maxence LeBlanc    | Max                 |
+| Gee Scott Jr.      | Gee                 |
+| Zak Herbstreit     | Zak                 |
+| Will Kacmarek      | Wil                 |
++--------------------+---------------------+
 
 Query #4
 
@@ -819,6 +924,16 @@ JOIN player AS p ON s.player_id = p.player_id
 GROUP BY p.player_id
 HAVING total_tds > 3;
 ```
++--------------------+-----------+
+| name               | total_tds |
++--------------------+-----------+
+| Quinshon Judkins   |        16 |
+| Emeka Egbuka       |        10 |
+| Jeremiah Smith     |        16 |
+| Carnell Tate       |         5 |
+| Will Howard        |        42 |
+| TreVeyon Henderson |        11 |
++--------------------+-----------+
 
 Query #5
 
@@ -834,6 +949,28 @@ JOIN game g ON s.game_id = g.game_id
 WHERE s.rushing_yards <> 0
 ORDER BY g.date, p.name;
 ```
++------------+------------------+--------------------+---------------+
+| date       | opponent         | name               | rushing_yards |
++------------+------------------+--------------------+---------------+
+| 2024-08-31 | Akron            | James People       |            30 |
+| 2024-08-31 | Akron            | Quinshon Judkins   |            55 |
+| 2024-08-31 | Akron            | Sam Dixon          |             4 |
+| 2024-08-31 | Akron            | TreVeyon Henderson |            65 |
+| 2024-08-31 | Akron            | Will Howard        |            18 |
+| 2024-09-07 | Western Michigan | Devin Brown        |            -8 |
+| 2024-09-07 | Western Michigan | James People       |            51 |
+| 2024-09-07 | Western Michigan | Julian Sayin       |             5 |
+| 2024-09-07 | Western Michigan | Mason Maggs        |             3 |
+| 2024-09-07 | Western Michigan | Quinshon Judkins   |           108 |
+| 2024-09-07 | Western Michigan | Sam Dixon          |            40 |
+| 2024-09-07 | Western Michigan | TreVeyon Henderson |            66 |
+| 2024-09-07 | Western Michigan | Will Howard        |             6 |
+| 2024-09-21 | Marshall         | Devin Brown        |             3 |
+| 2024-09-21 | Marshall         | James People       |            31 |
+| 2024-09-21 | Marshall         | Quinshon Judkins   |           173 |
+| 2024-09-21 | Marshall         | TreVeyon Henderson |            76 |
+| 2024-09-21 | Marshall         | Will Howard        |            -2 |
+...
 
 Query #6
 
@@ -844,14 +981,60 @@ SELECT
 FROM player_position pos
 LEFT JOIN player p ON p.position_id = pos.position_id;
 ```
++--------------------+---------------+
+| name               | description   |
++--------------------+---------------+
+| Lincoln Kienholz   | Quarterback   |
+| Julian Sayin       | Quarterback   |
+| Air Noland         | Quarterback   |
+| Mason Maggs        | Quarterback   |
+| Will Howard        | Quarterback   |
+| Chad Ray           | Quarterback   |
+| Devin Brown        | Quarterback   |
+| Quinshon Judkins   | Running Back  |
+| James People       | Running Back  |
+| Sam Dixon          | Running Back  |
+| Chase Brecht       | Running Back  |
+| TC Caffey          | Running Back  |
+| Rashid SeSay       | Running Back  |
+| TreVeyon Henderson | Running Back  |
+| Jelani Thurman     | Tight End     |
+| Jace Middleton     | Tight End     |
+| Patrick Gurd       | Tight End     |
+| Bennett Christian  | Tight End     |
+| Maxence LeBlanc    | Tight End     |
+| Gee Scott Jr.      | Tight End     |
+| Zak Herbstreit     | Tight End     |
+| Will Kacmarek      | Tight End     |
+| Emeka Egbuka       | Wide Receiver |
+| Jeremiah Smith     | Wide Receiver |
+| Mylan Graham       | Wide Receiver |
+| Jayden Ballard     | Wide Receiver |
+| Brandon Inniss     | Wide Receiver |
+| Bryson Rodgers     | Wide Receiver |
+| Kojo Antwi         | Wide Receiver |
+| Carnell Tate       | Wide Receiver |
+| Nolan Baudo        | Wide Receiver |
+| Brennen Schramm    | Wide Receiver |
+| Shawn Lodge        | Wide Receiver |
+| Damarion Witten    | Wide Receiver |
+| David Adolph       | Wide Receiver |
+| Joop Mitchell      | Wide Receiver |
+| Dorian Williams    | Wide Receiver |
++--------------------+---------------+
 
 Query #7
 
 ```sql
 UPDATE player
 SET weight = 225
-WHERE name = "Quishon Judkins";
+WHERE name = "Quinshon Judkins";
 ```
++-----------+------------------+-----------+-------------+--------+--------+--------+--------+
+| player_id | name             | hometown  | position_id | year   | height | weight | number |
++-----------+------------------+-----------+-------------+--------+--------+--------+--------+
+|         1 | Quinshon Judkins | Pike Road |           2 | Junior | 6-0    |    225 |      1 |
++-----------+------------------+-----------+-------------+--------+--------+--------+--------+
 
 Query #8
 
@@ -859,6 +1042,14 @@ Query #8
 DELETE FROM player_game_stats
 WHERE player_id = 3 AND game_id = 1;
 ```
++-----------+---------+---------------+-----------------+---------------+------------+--------+
+| player_id | game_id | rushing_yards | receiving_yards | passing_yards | touchdowns | played |
++-----------+---------+---------------+-----------------+---------------+------------+--------+
+|         1 |       1 |            55 |               0 |             0 |          1 |      1 |
+|         2 |       1 |             0 |              51 |             0 |          0 |      1 |
+|         4 |       1 |             0 |              92 |             0 |          2 |      1 |
+|         5 |       1 |             0 |               0 |             0 |          0 |      0 |
+...
 
 Query #9
 
@@ -880,6 +1071,47 @@ GROUP BY p.player_id;
 SELECT * FROM offensive_totals
 ORDER BY total_tds DESC;
 ```
++-----------+--------------------+------------+---------------+------------+-----------+
+| player_id | name               | total_rush | total_receive | total_pass | total_tds |
++-----------+--------------------+------------+---------------+------------+-----------+
+|        15 | Will Howard        |        226 |             0 |       4010 |        42 |
+|         4 | Jeremiah Smith     |         47 |          1315 |          0 |        16 |
+|         1 | Quinshon Judkins   |       1049 |           161 |          0 |        16 |
+|        23 | TreVeyon Henderson |       1016 |           284 |          0 |        11 |
+|         2 | Emeka Egbuka       |         33 |          1011 |          0 |        10 |
+|        14 | Carnell Tate       |          6 |           733 |          0 |         5 |
+|        35 | Gee Scott Jr.      |          0 |           253 |          0 |         2 |
+|        17 | James People       |        197 |            -2 |          0 |         2 |
+|         7 | Julian Sayin       |         24 |             0 |         84 |         1 |
+|        33 | Bennett Christian  |          0 |            61 |          0 |         1 |
+|        12 | Jelani Thurman     |          0 |            42 |          0 |         1 |
+|         8 | Brandon Inniss     |          0 |           176 |          0 |         1 |
+|        22 | Rashid SeSay       |          0 |             0 |          0 |         0 |
+|        19 | Sam Dixon          |         53 |             0 |          0 |         0 |
+|        16 | Chad Ray           |          0 |             0 |          0 |         0 |
+|        13 | Mason Maggs        |          3 |             0 |          0 |         0 |
+|        10 | Bryson Rodgers     |          0 |            46 |          0 |         0 |
+|        36 | Zak Herbstreit     |          0 |             0 |          0 |         0 |
+|        30 | David Adolph       |          0 |            10 |          0 |         0 |
+|        27 | Patrick Gurd       |          0 |             6 |          0 |         0 |
+|        24 | Devin Brown        |          8 |             0 |        114 |         0 |
+|        21 | TC Caffey          |          0 |             0 |          0 |         0 |
+|        18 | Nolan Baudo        |          0 |             0 |          0 |         0 |
+|         9 | Air Noland         |          0 |             0 |          0 |         0 |
+|         6 | Jayden Ballard     |          0 |            18 |          0 |         0 |
+|         3 | Lincoln Kienholz   |          0 |             0 |          0 |         0 |
+|        32 | Dorian Williams    |          0 |             0 |          0 |         0 |
+|        29 | Damarion Witten    |          0 |             0 |          0 |         0 |
+|        26 | Jace Middleton     |          0 |             0 |          0 |         0 |
+|        20 | Chase Brecht       |          0 |             0 |          0 |         0 |
+|        11 | Kojo Antwi         |          0 |             8 |          0 |         0 |
+|         5 | Mylan Graham       |          0 |             0 |          0 |         0 |
+|        37 | Will Kacmarek      |          0 |            86 |          0 |         0 |
+|        34 | Maxence LeBlanc    |          0 |             0 |          0 |         0 |
+|        31 | Joop Mitchell      |          0 |             0 |          0 |         0 |
+|        28 | Shawn Lodge        |          0 |             0 |          0 |         0 |
+|        25 | Brennen Schramm    |          0 |             0 |          0 |         0 |
++-----------+--------------------+------------+---------------+------------+-----------+
 
 Query #10
 
@@ -892,10 +1124,22 @@ UPDATE player_game_stats
 SET rushing_yards = rushing_yards + 20
 WHERE player_id = 3 AND game_id = 2;
 ```
++-----------+---------+---------------+-----------------+---------------+------------+--------+
+| player_id | game_id | rushing_yards | receiving_yards | passing_yards | touchdowns | played |
++-----------+---------+---------------+-----------------+---------------+------------+--------+
+|         3 |       2 |            20 |               0 |             0 |          0 |      1 |
++-----------+---------+---------------+-----------------+---------------+------------+--------+
 
 ```sql
 ROLLBACK;
 ```
+MariaDB [merillat]> SELECT * from player_game_stats WHERE player_id = 3 AND game_id = 2;
++-----------+---------+---------------+-----------------+---------------+------------+--------+
+| player_id | game_id | rushing_yards | receiving_yards | passing_yards | touchdowns | played |
++-----------+---------+---------------+-----------------+---------------+------------+--------+
+|         3 |       2 |             0 |               0 |             0 |          0 |      1 |
++-----------+---------+---------------+-----------------+---------------+------------+--------+
+
 * 2-3 sentence description before explaining its purpose and when/why it would be used
 * Show the results of the queries in table format
 
