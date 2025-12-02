@@ -786,6 +786,7 @@ Query #1
 SELECT * FROM player
 ORDER BY position_id ASC, name ASC;
 ```
+```sql
 +-----------+--------------------+---------------+-------------+-----------+--------+--------+--------+
 | player_id | name               | hometown      | position_id | year      | height | weight | number |
 +-----------+--------------------+---------------+-------------+-----------+--------+--------+--------+
@@ -827,7 +828,7 @@ ORDER BY position_id ASC, name ASC;
 |        18 | Nolan Baudo        | Chicago       |           4 | Sophomore | 5-10   |    180 |     23 |
 |        28 | Shawn Lodge        | Akron         |           4 | Junior    | 6-0    |    170 |     80 |
 +-----------+--------------------+---------------+-------------+-----------+--------+--------+--------
-
+```
 Query #2
 
 ```sql
@@ -839,6 +840,7 @@ FROM player_game_stats pgs
 JOIN player p ON pgs.player_id = p.player_id
 WHERE pgs.played <> 0;
 ```
+```sql
 +--------------------+---------+-------------+
 | name               | game_id | total_yards |
 +--------------------+---------+-------------+
@@ -862,7 +864,7 @@ WHERE pgs.played <> 0;
 | Emeka Egbuka       |       2 |          98 |
 | Emeka Egbuka       |       3 |         117 |
 ...
-
+```
 Query #3
 
 ```sql
@@ -871,6 +873,7 @@ SELECT
     MID(name, 1, 3) AS first_three_letters
 FROM player;
 ```
+```sql
 +--------------------+---------------------+
 | name               | first_three_letters |
 +--------------------+---------------------+
@@ -912,6 +915,7 @@ FROM player;
 | Zak Herbstreit     | Zak                 |
 | Will Kacmarek      | Wil                 |
 +--------------------+---------------------+
+```
 
 Query #4
 
@@ -924,6 +928,7 @@ JOIN player AS p ON s.player_id = p.player_id
 GROUP BY p.player_id
 HAVING total_tds > 3;
 ```
+```sql
 +--------------------+-----------+
 | name               | total_tds |
 +--------------------+-----------+
@@ -934,6 +939,7 @@ HAVING total_tds > 3;
 | Will Howard        |        42 |
 | TreVeyon Henderson |        11 |
 +--------------------+-----------+
+```
 
 Query #5
 
@@ -949,6 +955,7 @@ JOIN game g ON s.game_id = g.game_id
 WHERE s.rushing_yards <> 0
 ORDER BY g.date, p.name;
 ```
+```sql
 +------------+------------------+--------------------+---------------+
 | date       | opponent         | name               | rushing_yards |
 +------------+------------------+--------------------+---------------+
@@ -971,6 +978,7 @@ ORDER BY g.date, p.name;
 | 2024-09-21 | Marshall         | TreVeyon Henderson |            76 |
 | 2024-09-21 | Marshall         | Will Howard        |            -2 |
 ...
+```
 
 Query #6
 
@@ -981,6 +989,7 @@ SELECT
 FROM player_position pos
 LEFT JOIN player p ON p.position_id = pos.position_id;
 ```
+```sql
 +--------------------+---------------+
 | name               | description   |
 +--------------------+---------------+
@@ -1022,6 +1031,7 @@ LEFT JOIN player p ON p.position_id = pos.position_id;
 | Joop Mitchell      | Wide Receiver |
 | Dorian Williams    | Wide Receiver |
 +--------------------+---------------+
+```
 
 Query #7
 
@@ -1030,11 +1040,13 @@ UPDATE player
 SET weight = 225
 WHERE name = "Quinshon Judkins";
 ```
+```sql
 +-----------+------------------+-----------+-------------+--------+--------+--------+--------+
 | player_id | name             | hometown  | position_id | year   | height | weight | number |
 +-----------+------------------+-----------+-------------+--------+--------+--------+--------+
 |         1 | Quinshon Judkins | Pike Road |           2 | Junior | 6-0    |    225 |      1 |
 +-----------+------------------+-----------+-------------+--------+--------+--------+--------+
+```
 
 Query #8
 
@@ -1042,6 +1054,7 @@ Query #8
 DELETE FROM player_game_stats
 WHERE player_id = 3 AND game_id = 1;
 ```
+```sql
 +-----------+---------+---------------+-----------------+---------------+------------+--------+
 | player_id | game_id | rushing_yards | receiving_yards | passing_yards | touchdowns | played |
 +-----------+---------+---------------+-----------------+---------------+------------+--------+
@@ -1050,6 +1063,7 @@ WHERE player_id = 3 AND game_id = 1;
 |         4 |       1 |             0 |              92 |             0 |          2 |      1 |
 |         5 |       1 |             0 |               0 |             0 |          0 |      0 |
 ...
+```
 
 Query #9
 
@@ -1071,6 +1085,7 @@ GROUP BY p.player_id;
 SELECT * FROM offensive_totals
 ORDER BY total_tds DESC;
 ```
+```sql
 +-----------+--------------------+------------+---------------+------------+-----------+
 | player_id | name               | total_rush | total_receive | total_pass | total_tds |
 +-----------+--------------------+------------+---------------+------------+-----------+
@@ -1112,6 +1127,7 @@ ORDER BY total_tds DESC;
 |        28 | Shawn Lodge        |          0 |             0 |          0 |         0 |
 |        25 | Brennen Schramm    |          0 |             0 |          0 |         0 |
 +-----------+--------------------+------------+---------------+------------+-----------+
+```
 
 Query #10
 
@@ -1124,24 +1140,26 @@ UPDATE player_game_stats
 SET rushing_yards = rushing_yards + 20
 WHERE player_id = 3 AND game_id = 2;
 ```
+```sql
 +-----------+---------+---------------+-----------------+---------------+------------+--------+
 | player_id | game_id | rushing_yards | receiving_yards | passing_yards | touchdowns | played |
 +-----------+---------+---------------+-----------------+---------------+------------+--------+
 |         3 |       2 |            20 |               0 |             0 |          0 |      1 |
 +-----------+---------+---------------+-----------------+---------------+------------+--------+
+```
 
 ```sql
 ROLLBACK;
 ```
-MariaDB [merillat]> SELECT * from player_game_stats WHERE player_id = 3 AND game_id = 2;
+```sql
 +-----------+---------+---------------+-----------------+---------------+------------+--------+
 | player_id | game_id | rushing_yards | receiving_yards | passing_yards | touchdowns | played |
 +-----------+---------+---------------+-----------------+---------------+------------+--------+
 |         3 |       2 |             0 |               0 |             0 |          0 |      1 |
 +-----------+---------+---------------+-----------------+---------------+------------+--------+
+```
 
 * 2-3 sentence description before explaining its purpose and when/why it would be used
-* Show the results of the queries in table format
 
 ## Reports
 Connect to an external reporting tool (or export your data) and create two reports.
