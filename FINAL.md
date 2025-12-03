@@ -57,12 +57,12 @@ erDiagram
     PLAYER_POSITION ||--|{ PLAYER : "classifies"
     
 ```
+## Design Description
+  The design of my database is fully normalized and has a relational structure that intends to store and analyze football player performance data across a full season. This database model separates the data into 4 distinct tables. We can see the basic information for each player on the team, each game in the season, and the positions on the team. Using those three tables, they can be combined to get the 4th table that describes each player's stats for every game. The tables depend solely on their primary keys, following the Third Normal Form. For example, player details such as jersey number, height, and hometown are stored only once in the player table to prevent unnecessary duplication when generating statistics for multiple games.
 
-  The design of my database is fully normalized and has a relational structure that intends to store and analyze football player performance data across a full season. This database model separates the data into 4 distinct tables. We can see the basic information for each player on the team, each game in the season, and the positions on the team. Using those three tables, they can be combined to get the 4th table that describes each player's stats for every game. The tables depend solely on their primary keys, following the Third Normal Form. For example, player details such as jersey number, height, and hometown are stored only once in the Player table to prevent unnecessary duplication when generating statistics for multiple games.
+  A key design choice I made was creating a junction table, `player_game_stats`, to represent the many-to-many relationship between players and games. To avoid this issue, the player_game_stats table has a composite primary key of player_id and game_id. This composite key is used to uniquely identify each performance entry. The `player_game_stats` table also limited the stats to the measurable performance metrics: rushing, receiving, passing, and touchdowns, which allows game-by-game analytics without repeating player or game attributes.
 
-  A key design choice I made was creating a junction table, player_game_stats, to represent the many-to-many relationship between players and games. To avoid this issue, the player_game_stats table has a composite primary key of player_id and game_id. This composite key is used to identify each performance entry uniquely. The stats table also limited the stats to the measurable performance metrics: rushing, receiving, passing, and touchdowns, which allows game-by-game analytics without repeating player or game attributes.
-
-  The database also normalizes player positions by storing them in a separate player_position table. I could have kept the full position name for each player, but I decided to create a whole table for the position. The position_id serves as a foreign key in the player table that references a single record in the player_position table. Making this choice avoids inconsistency in position naming, makes updates easier, and maintains referential integrity. Overall, the design enforces clean separation of entities while supporting flexible reporting and efficient statistical queries.
+  The database also normalizes player positions by storing them in a separate `player_position` table. I could have kept the full position name for each player, but I decided to create a whole table for the position. The position_id serves as a foreign key in the player table that references a single record in the player_position table. Making this choice avoids inconsistency in position naming, makes updates easier, and maintains referential integrity. Overall, the design enforces clean separation of entities while supporting flexible reporting and efficient statistical queries.
   
 
   ### Player
@@ -780,7 +780,9 @@ insert into player_game_stats(player_id, game_id, rushing_yards, receiving_yards
 ```
 
 ## Queries
-Query #1
+### Query #1
+
+This query lists all the information by `position_id` ascending, and then by full `name` in alphabetical order. This can be helpful when checking that all players are in the roster.
 
 ```sql
 SELECT * FROM player
@@ -829,7 +831,9 @@ ORDER BY position_id ASC, name ASC;
 |        28 | Shawn Lodge        | Akron         |           4 | Junior    | 6-0    |    170 |     80 |
 +-----------+--------------------+---------------+-------------+-----------+--------+--------+--------
 ```
-Query #2
+### Query #2
+
+This query shows the total yards, including passing, rushing, and receiving, each player has when they played in the game. This can be useful when figuring out the leaders of a certain game. Also, excluding players who did not play makes the data easier to read. 
 
 ```sql
 SELECT 
@@ -866,6 +870,8 @@ WHERE pgs.played <> 0;
 ...
 ```
 Query #3
+
+This query shows the first three letters from each player's name. This can be helpful when sorting data without having to look at full names.
 
 ```sql
 SELECT 
@@ -918,6 +924,8 @@ FROM player;
 ```
 
 Query #4
+
+This query shows which players had more the 3 touchdowns in the entire season. This is helpful when tracking leaders on the team and what positions have to be filled when players leave the program. 
 
 ```sql
 SELECT
