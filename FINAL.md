@@ -951,6 +951,8 @@ HAVING total_tds > 3;
 
 Query #5
 
+This query joins together `game`, `player`, and `player_game_stats` tables to form a table to see the date, opponent, name, and rushing_yards. This can be helpful when seeing names of the players and not only the player_id. The user can also see which players got more coverage against a certain team if they need to replay them later in the postseason. 
+
 ```sql
 SELECT 
     g.date,
@@ -989,6 +991,8 @@ ORDER BY g.date, p.name;
 ```
 
 Query #6
+
+This query gives the description name of the position of each player rather than the id number. This is helpful when wanting to know who plays in what position based on the position_id.
 
 ```sql
 SELECT
@@ -1043,6 +1047,8 @@ LEFT JOIN player p ON p.position_id = pos.position_id;
 
 Query #7
 
+This query updates the player info. A query like this will make updates to roster changes simple.
+
 ```sql
 UPDATE player
 SET weight = 225
@@ -1057,6 +1063,8 @@ WHERE name = "Quinshon Judkins";
 ```
 
 Query #8
+
+This query deletes a single line of data from the `player_game_stats` table. This is useful for when a player gets added twice in the system or a mistake has been made.
 
 ```sql
 DELETE FROM player_game_stats
@@ -1075,6 +1083,8 @@ WHERE player_id = 3 AND game_id = 1;
 
 Query #9
 
+This query creates a view called `offensive_totals` that sums the total rushing, receiving, and passing yards and touchdowns for each player. This type of view makes it easy to see the impact each player had on the team.
+
 ```sql
 CREATE VIEW offensive_totals AS
 SELECT 
@@ -1087,9 +1097,7 @@ SELECT
 FROM player_game_stats s
 JOIN player p ON s.player_id = p.player_id
 GROUP BY p.player_id;
-```
 
-```sql
 SELECT * FROM offensive_totals
 ORDER BY total_tds DESC;
 ```
@@ -1139,6 +1147,8 @@ ORDER BY total_tds DESC;
 
 Query #10
 
+This query shows an example of adding rushing yards to a player's stats temporarily and then can rollback the changes. This can be helpful when watching film after a game to add stats to the database. 
+
 ```sql
 START TRANSACTION;
 ```
@@ -1166,8 +1176,7 @@ ROLLBACK;
 |         3 |       2 |             0 |               0 |             0 |          0 |      1 |
 +-----------+---------+---------------+-----------------+---------------+------------+--------+
 ```
-
-* 2-3 sentence description before explaining its purpose and when/why it would be used
+01
 
 ## Reports
 Connect to an external reporting tool (or export your data) and create two reports.
