@@ -830,6 +830,7 @@ ORDER BY position_id ASC, name ASC;
 |        18 | Nolan Baudo        | Chicago       |           4 | Sophomore | 5-10   |    180 |     23 |
 |        28 | Shawn Lodge        | Akron         |           4 | Junior    | 6-0    |    170 |     80 |
 +-----------+--------------------+---------------+-------------+-----------+--------+--------+--------
+37 rows in set (0.001 sec)
 ```
 ### Query #2
 
@@ -868,6 +869,13 @@ WHERE pgs.played <> 0;
 | Emeka Egbuka       |       2 |          98 |
 | Emeka Egbuka       |       3 |         117 |
 ...
+| Will Kacmarek      |       6 |          32 |
+| Will Kacmarek      |      11 |           0 |
+| Will Kacmarek      |      13 |           7 |
+| Will Kacmarek      |      15 |          21 |
+| Will Kacmarek      |      16 |           0 |
++--------------------+---------+-------------+
+253 rows in set (0.002 sec)
 ```
 Query #3
 
@@ -921,6 +929,7 @@ FROM player;
 | Zak Herbstreit     | Zak                 |
 | Will Kacmarek      | Wil                 |
 +--------------------+---------------------+
+37 rows in set (0.001 sec)
 ```
 
 Query #4
@@ -947,6 +956,7 @@ HAVING total_tds > 3;
 | Will Howard        |        42 |
 | TreVeyon Henderson |        11 |
 +--------------------+-----------+
+6 rows in set (0.001 sec)
 ```
 
 Query #5
@@ -980,14 +990,14 @@ ORDER BY g.date, p.name;
 | 2024-09-07 | Western Michigan | Mason Maggs        |             3 |
 | 2024-09-07 | Western Michigan | Quinshon Judkins   |           108 |
 | 2024-09-07 | Western Michigan | Sam Dixon          |            40 |
-| 2024-09-07 | Western Michigan | TreVeyon Henderson |            66 |
-| 2024-09-07 | Western Michigan | Will Howard        |             6 |
-| 2024-09-21 | Marshall         | Devin Brown        |             3 |
-| 2024-09-21 | Marshall         | James People       |            31 |
-| 2024-09-21 | Marshall         | Quinshon Judkins   |           173 |
-| 2024-09-21 | Marshall         | TreVeyon Henderson |            76 |
-| 2024-09-21 | Marshall         | Will Howard        |            -2 |
 ...
+| 2025-01-20 | Notre Dame       | Emeka Egbuka       |            13 |
+| 2025-01-20 | Notre Dame       | Jeremiah Smith     |            -5 |
+| 2025-01-20 | Notre Dame       | Quinshon Judkins   |           100 |
+| 2025-01-20 | Notre Dame       | TreVeyon Henderson |            49 |
+| 2025-01-20 | Notre Dame       | Will Howard        |            57 |
++------------+------------------+--------------------+---------------+
+77 rows in set (0.004 sec)
 ```
 
 Query #6
@@ -1043,6 +1053,7 @@ LEFT JOIN player p ON p.position_id = pos.position_id;
 | Joop Mitchell      | Wide Receiver |
 | Dorian Williams    | Wide Receiver |
 +--------------------+---------------+
+37 rows in set (0.001 sec)
 ```
 
 Query #7
@@ -1060,6 +1071,7 @@ WHERE name = "Quinshon Judkins";
 +-----------+------------------+-----------+-------------+--------+--------+--------+--------+
 |         1 | Quinshon Judkins | Pike Road |           2 | Junior | 6-0    |    225 |      1 |
 +-----------+------------------+-----------+-------------+--------+--------+--------+--------+
+1 row in set (0.001 sec)
 ```
 
 Query #8
@@ -1079,6 +1091,12 @@ WHERE player_id = 3 AND game_id = 1;
 |         4 |       1 |             0 |              92 |             0 |          2 |      1 |
 |         5 |       1 |             0 |               0 |             0 |          0 |      0 |
 ...
+|        34 |       1 |             0 |               0 |             0 |          0 |      0 |
+|        35 |       1 |             0 |               0 |             0 |          0 |      1 |
+|        36 |       1 |             0 |               0 |             0 |          0 |      0 |
+|        37 |       1 |             0 |               0 |             0 |          0 |      1 |
++-----------+---------+---------------+-----------------+---------------+------------+--------+
+591 rows in set (0.007 sec)
 ```
 
 Query #9
@@ -1143,6 +1161,7 @@ ORDER BY total_tds DESC;
 |        28 | Shawn Lodge        |          0 |             0 |          0 |         0 |
 |        25 | Brennen Schramm    |          0 |             0 |          0 |         0 |
 +-----------+--------------------+------------+---------------+------------+-----------+
+37 rows in set (0.001 sec)
 ```
 
 Query #10
@@ -1164,6 +1183,7 @@ WHERE player_id = 3 AND game_id = 2;
 +-----------+---------+---------------+-----------------+---------------+------------+--------+
 |         3 |       2 |            20 |               0 |             0 |          0 |      1 |
 +-----------+---------+---------------+-----------------+---------------+------------+--------+
+1 row in set (0.000 sec)
 ```
 
 ```sql
@@ -1175,8 +1195,8 @@ ROLLBACK;
 +-----------+---------+---------------+-----------------+---------------+------------+--------+
 |         3 |       2 |             0 |               0 |             0 |          0 |      1 |
 +-----------+---------+---------------+-----------------+---------------+------------+--------+
+1 row in set (0.001 sec)
 ```
-01
 
 ## Reports
 Connect to an external reporting tool (or export your data) and create two reports.
