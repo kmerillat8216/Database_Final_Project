@@ -1096,7 +1096,7 @@ WHERE player_id = 3 AND game_id = 1;
 |        36 |       1 |             0 |               0 |             0 |          0 |      0 |
 |        37 |       1 |             0 |               0 |             0 |          0 |      1 |
 +-----------+---------+---------------+-----------------+---------------+------------+--------+
-591 rows in set (0.007 sec)
+36 rows in set (0.001 sec)
 ```
 
 Query #9
@@ -1210,6 +1210,15 @@ In one or two paragraphs, describe the reporting software you used and the purpo
 Create a single SQL code block to delete your tables and data.
 
 * Script to delete **all data, tables, and views**.
+
+```sql
+DROP VIEW IF EXISTS offensive_totals;
+
+DROP TABLE IF EXISTS player_game_stats;
+DROP TABLE IF EXISTS player;
+DROP TABLE IF EXISTS game;
+DROP TABLE IF EXISTS player_position;
+```
 
 ## Poster and Presentation
 Create a poster describing your Database Project using the template provided.  Host poster as .PDF on GitHub, include link to file in your documentation.
