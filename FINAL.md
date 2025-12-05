@@ -1230,7 +1230,5 @@ DROP TABLE IF EXISTS game;
 DROP TABLE IF EXISTS player_position;
 ```
 
-## Poster and Presentation
-Create a poster describing your Database Project using the template provided.  Host poster as .PDF on GitHub, include link to file in your documentation.
-Deliver a five-minute presentation during finals that describes your database design, demonstrates your SQL queries, 
-and describing any challenges you encountered and insights you gained from the project.
+## Poster
+[Research Poster PDF](ResearchPoster.pdf)
