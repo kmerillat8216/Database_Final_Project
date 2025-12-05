@@ -1199,12 +1199,22 @@ ROLLBACK;
 ```
 
 ## Reports
-Connect to an external reporting tool (or export your data) and create two reports.
-1. Chart or Graph-based report
-2. Table-based report with Report Title
+**Yards Per Player (displayed on this page)**
+![YardsPerPlayer](YardsPerPlayer.png "Yards Per Player")
 
-Use Excel, Access, PowerBI, or any other reporting tool.  Post your report and include a link to each report as a .pdf (or viewable image). 
-In one or two paragraphs, describe the reporting software you used and the purpose of each report.
+**Yards Per Player (link)**
+[YardsPerPlayer](YardsPerPlayer.png "Yards Per Player")
+
+---
+
+**Touchdowns (displayed on this page)**
+![Touchdowns](Touchdowns.png "Touchdowns by player and game")
+
+
+**Touchdowns (link)**
+[Touchdowns](Touchdowns.png "Touchdowns by player and game")
+
+The software that I chose to use was Microsoft Excel, and I created the reports using the pivot table function. The yards per player report takes all rushing, receiving, and passing yards for each player across the season and combines them for a total number of yards. This is helpful when seeing the top offensive players of the season. The second report shows who scored touchdowns in each game of the season and then totals them in the last column. This again can be helpful for top offensive players of the season. 
 
 ## Delete Tables
 Create a single SQL code block to delete your tables and data.
