@@ -77,6 +77,11 @@ erDiagram
 ## Tables
 ```sql
 
+CREATE TABLE player_position (
+	position_id integer auto_increment PRIMARY KEY,
+	description varChar(50)
+)ENGINE=InnoDB;
+
 CREATE TABLE player (
 	player_id integer auto_increment PRIMARY KEY,
 	name varChar(100),
@@ -99,10 +104,6 @@ CREATE TABLE game (
 	location varChar(100)
 )ENGINE=InnoDB;
 
-CREATE TABLE player_position (
-	position_id integer auto_increment PRIMARY KEY,
-	description varChar(50)
-)ENGINE=InnoDB;
 
 CREATE TABLE player_game_stats(
 	player_id integer,
