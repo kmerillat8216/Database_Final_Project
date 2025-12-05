@@ -145,7 +145,7 @@ insert into player (player_id, name, hometown, position_id, year, height, weight
 (14,	'Carnell Tate',	'Chicago',	4,	'Sophomore',	'6-3',	191,	17),
 (15,	'Will Howard',	'Downington',	1,	'Graduate',	'6-4',	235,	18),
 (16,	'Chad Ray',	'Dublin',	1,	'Senior',	'6-2',	215,	19),
-(17,	'James People',	'San Antonio',	2,	'Freshman',	'5-10',	203,	20),
+(17,	'James Peoples',	'San Antonio',	2,	'Freshman',	'5-10',	203,	20),
 (18,	'Nolan Baudo',	'Chicago',	4,	'Sophomore',	'5-10',	180,	23),
 (19,	'Sam Dixon',	'Pickerington',	2,	'Freshman',	'5-11',	203,	24),
 (20,	'Chase Brecht',	'Powell',	2,	'Junior',	'6-0',	205,	26),
@@ -801,7 +801,7 @@ ORDER BY position_id ASC, name ASC;
 |        13 | Mason Maggs        | Dublin        |           1 | Junior    | 6-2    |    224 |     16 |
 |        15 | Will Howard        | Downington    |           1 | Graduate  | 6-4    |    235 |     18 |
 |        20 | Chase Brecht       | Powell        |           2 | Junior    | 6-0    |    205 |     26 |
-|        17 | James People       | San Antonio   |           2 | Freshman  | 5-10   |    203 |     20 |
+|        17 | James Peoples      | San Antonio   |           2 | Freshman  | 5-10   |    203 |     20 |
 |         1 | Quinshon Judkins   | Pike Road     |           2 | Junior    | 6-0    |    219 |      1 |
 |        22 | Rashid SeSay       | Zanesville    |           2 | Freshman  | 5-11   |    190 |     30 |
 |        19 | Sam Dixon          | Pickerington  |           2 | Freshman  | 5-11   |    203 |     24 |
@@ -908,7 +908,7 @@ FROM player;
 | Carnell Tate       | Car                 |
 | Will Howard        | Wil                 |
 | Chad Ray           | Cha                 |
-| James People       | Jam                 |
+| James Peoples      | Jam                 |
 | Nolan Baudo        | Nol                 |
 | Sam Dixon          | Sam                 |
 | Chase Brecht       | Cha                 |
@@ -980,13 +980,13 @@ ORDER BY g.date, p.name;
 +------------+------------------+--------------------+---------------+
 | date       | opponent         | name               | rushing_yards |
 +------------+------------------+--------------------+---------------+
-| 2024-08-31 | Akron            | James People       |            30 |
+| 2024-08-31 | Akron            | James Peoples      |            30 |
 | 2024-08-31 | Akron            | Quinshon Judkins   |            55 |
 | 2024-08-31 | Akron            | Sam Dixon          |             4 |
 | 2024-08-31 | Akron            | TreVeyon Henderson |            65 |
 | 2024-08-31 | Akron            | Will Howard        |            18 |
 | 2024-09-07 | Western Michigan | Devin Brown        |            -8 |
-| 2024-09-07 | Western Michigan | James People       |            51 |
+| 2024-09-07 | Western Michigan | James Peoples      |            51 |
 | 2024-09-07 | Western Michigan | Julian Sayin       |             5 |
 | 2024-09-07 | Western Michigan | Mason Maggs        |             3 |
 | 2024-09-07 | Western Michigan | Quinshon Judkins   |           108 |
@@ -1024,7 +1024,7 @@ LEFT JOIN player p ON p.position_id = pos.position_id;
 | Chad Ray           | Quarterback   |
 | Devin Brown        | Quarterback   |
 | Quinshon Judkins   | Running Back  |
-| James People       | Running Back  |
+| James Peoples      | Running Back  |
 | Sam Dixon          | Running Back  |
 | Chase Brecht       | Running Back  |
 | TC Caffey          | Running Back  |
@@ -1118,51 +1118,51 @@ JOIN player p ON s.player_id = p.player_id
 GROUP BY p.player_id;
 
 SELECT * FROM offensive_totals
-ORDER BY total_tds DESC;
+ORDER BY player_id ASC;
 ```
 ```sql
 +-----------+--------------------+------------+---------------+------------+-----------+
 | player_id | name               | total_rush | total_receive | total_pass | total_tds |
 +-----------+--------------------+------------+---------------+------------+-----------+
-|        15 | Will Howard        |        226 |             0 |       4010 |        42 |
-|         4 | Jeremiah Smith     |         47 |          1315 |          0 |        16 |
 |         1 | Quinshon Judkins   |       1049 |           161 |          0 |        16 |
-|        23 | TreVeyon Henderson |       1016 |           284 |          0 |        11 |
 |         2 | Emeka Egbuka       |         33 |          1011 |          0 |        10 |
-|        14 | Carnell Tate       |          6 |           733 |          0 |         5 |
-|        35 | Gee Scott Jr.      |          0 |           253 |          0 |         2 |
-|        17 | James People       |        197 |            -2 |          0 |         2 |
-|         7 | Julian Sayin       |         24 |             0 |         84 |         1 |
-|        33 | Bennett Christian  |          0 |            61 |          0 |         1 |
-|        12 | Jelani Thurman     |          0 |            42 |          0 |         1 |
-|         8 | Brandon Inniss     |          0 |           176 |          0 |         1 |
-|        22 | Rashid SeSay       |          0 |             0 |          0 |         0 |
-|        19 | Sam Dixon          |         53 |             0 |          0 |         0 |
-|        16 | Chad Ray           |          0 |             0 |          0 |         0 |
-|        13 | Mason Maggs        |          3 |             0 |          0 |         0 |
-|        10 | Bryson Rodgers     |          0 |            46 |          0 |         0 |
-|        36 | Zak Herbstreit     |          0 |             0 |          0 |         0 |
-|        30 | David Adolph       |          0 |            10 |          0 |         0 |
-|        27 | Patrick Gurd       |          0 |             6 |          0 |         0 |
-|        24 | Devin Brown        |          8 |             0 |        114 |         0 |
-|        21 | TC Caffey          |          0 |             0 |          0 |         0 |
-|        18 | Nolan Baudo        |          0 |             0 |          0 |         0 |
-|         9 | Air Noland         |          0 |             0 |          0 |         0 |
-|         6 | Jayden Ballard     |          0 |            18 |          0 |         0 |
 |         3 | Lincoln Kienholz   |          0 |             0 |          0 |         0 |
-|        32 | Dorian Williams    |          0 |             0 |          0 |         0 |
-|        29 | Damarion Witten    |          0 |             0 |          0 |         0 |
-|        26 | Jace Middleton     |          0 |             0 |          0 |         0 |
-|        20 | Chase Brecht       |          0 |             0 |          0 |         0 |
-|        11 | Kojo Antwi         |          0 |             8 |          0 |         0 |
+|         4 | Jeremiah Smith     |         47 |          1315 |          0 |        16 |
 |         5 | Mylan Graham       |          0 |             0 |          0 |         0 |
-|        37 | Will Kacmarek      |          0 |            86 |          0 |         0 |
-|        34 | Maxence LeBlanc    |          0 |             0 |          0 |         0 |
-|        31 | Joop Mitchell      |          0 |             0 |          0 |         0 |
-|        28 | Shawn Lodge        |          0 |             0 |          0 |         0 |
+|         6 | Jayden Ballard     |          0 |            18 |          0 |         0 |
+|         7 | Julian Sayin       |         24 |             0 |         84 |         1 |
+|         8 | Brandon Inniss     |          0 |           176 |          0 |         1 |
+|         9 | Air Noland         |          0 |             0 |          0 |         0 |
+|        10 | Bryson Rodgers     |          0 |            46 |          0 |         0 |
+|        11 | Kojo Antwi         |          0 |             8 |          0 |         0 |
+|        12 | Jelani Thurman     |          0 |            42 |          0 |         1 |
+|        13 | Mason Maggs        |          3 |             0 |          0 |         0 |
+|        14 | Carnell Tate       |          6 |           733 |          0 |         5 |
+|        15 | Will Howard        |        226 |             0 |       4010 |        42 |
+|        16 | Chad Ray           |          0 |             0 |          0 |         0 |
+|        17 | James People       |        197 |            -2 |          0 |         2 |
+|        18 | Nolan Baudo        |          0 |             0 |          0 |         0 |
+|        19 | Sam Dixon          |         53 |             0 |          0 |         0 |
+|        20 | Chase Brecht       |          0 |             0 |          0 |         0 |
+|        21 | TC Caffey          |          0 |             0 |          0 |         0 |
+|        22 | Rashid SeSay       |          0 |             0 |          0 |         0 |
+|        23 | TreVeyon Henderson |       1016 |           284 |          0 |        11 |
+|        24 | Devin Brown        |          8 |             0 |        114 |         0 |
 |        25 | Brennen Schramm    |          0 |             0 |          0 |         0 |
+|        26 | Jace Middleton     |          0 |             0 |          0 |         0 |
+|        27 | Patrick Gurd       |          0 |             6 |          0 |         0 |
+|        28 | Shawn Lodge        |          0 |             0 |          0 |         0 |
+|        29 | Damarion Witten    |          0 |             0 |          0 |         0 |
+|        30 | David Adolph       |          0 |            10 |          0 |         0 |
+|        31 | Joop Mitchell      |          0 |             0 |          0 |         0 |
+|        32 | Dorian Williams    |          0 |             0 |          0 |         0 |
+|        33 | Bennett Christian  |          0 |            61 |          0 |         1 |
+|        34 | Maxence LeBlanc    |          0 |             0 |          0 |         0 |
+|        35 | Gee Scott Jr.      |          0 |           253 |          0 |         2 |
+|        36 | Zak Herbstreit     |          0 |             0 |          0 |         0 |
+|        37 | Will Kacmarek      |          0 |            86 |          0 |         0 |
 +-----------+--------------------+------------+---------------+------------+-----------+
-37 rows in set (0.001 sec)
+37 rows in set (0.002 sec)
 ```
 
 Query #10
