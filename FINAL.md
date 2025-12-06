@@ -1218,9 +1218,6 @@ ROLLBACK;
 The software that I chose to use was Microsoft Excel, and I created the reports using the pivot table function. The yards per player report takes all rushing, receiving, and passing yards for each player across the season and combines them for a total number of yards. This is helpful when seeing the top offensive players of the season. The second report shows who scored touchdowns in each game of the season and then totals them in the last column. This again can be helpful for top offensive players of the season. 
 
 ## Delete Tables
-Create a single SQL code block to delete your tables and data.
-
-* Script to delete **all data, tables, and views**.
 
 ```sql
 DROP VIEW IF EXISTS offensive_totals;
